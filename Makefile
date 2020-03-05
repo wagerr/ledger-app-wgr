@@ -168,9 +168,15 @@ else ifeq ($(COIN),resistance)
 DEFINES   += COIN_P2PKH_VERSION=7063 COIN_P2SH_VERSION=7068 COIN_FAMILY=1 COIN_COINID=\"Res\" COIN_COINID_HEADER=\"RES\" COIN_COLOR_HDR=0x3790CA COIN_COLOR_DB=0x9BC8E5 COIN_COINID_NAME=\"Res\" COIN_COINID_SHORT=\"RES\" COIN_KIND=COIN_KIND_RESISTANCE
 APPNAME ="Resistance"
 APP_LOAD_PARAMS += --path $(APP_PATH)
+else ifeq ($(COIN),wagerr)
+# Wagerr
+DEFINES   += COIN_P2PKH_VERSION=73 COIN_P2SH_VERSION=63 COIN_FAMILY=1 COIN_COINID=\"Wagerr\" COIN_COINID_HEADER=\"WAGERR\" COIN_COLOR_HDR=0xA80D0B COIN_COLOR_DB=0xcc403e COIN_COINID_NAME=\"Wagerr\" COIN_COINID_SHORT=\"WGR\" COIN_KIND=COIN_KIND_WAGERR COIN_FLAGS=FLAG_SEGWIT_CHANGE_SUPPORT
+APPNAME ="Wagerr"
+APP_LOAD_PARAMS += --path $(APP_PATH)
+
 else
 ifeq ($(filter clean,$(MAKECMDGOALS)),)
-$(error Unsupported COIN - use bitcoin_testnet, bitcoin, bitcoin_cash, bitcoin_gold, litecoin, dogecoin, dash, zcash, horizen, komodo, stratis, peercoin, pivx, viacoin, vertcoin, stealth, digibyte, qtum, bitcoin_private, zcoin, gamecredits, zclassic, xsn, nix, lbry, resistance)
+$(error Unsupported COIN - use bitcoin_testnet, bitcoin, bitcoin_cash, bitcoin_gold, litecoin, dogecoin, dash, zcash, horizen, komodo, stratis, peercoin, pivx, viacoin, vertcoin, stealth, digibyte, qtum, bitcoin_private, zcoin, gamecredits, zclassic, xsn, nix, lbry, resistance,wagerr)
 endif
 endif
 
@@ -318,6 +324,6 @@ listvariants:
 else
 
 listvariants:
-	@echo VARIANTS COIN bitcoin_testnet bitcoin bitcoin_cash bitcoin_gold litecoin dogecoin dash zcash horizen komodo stratis peercoin pivx viacoin vertcoin stealth digibyte qtum bitcoin_private zcoin gamecredits zclassic xsn nix lbry resistance
+	@echo VARIANTS COIN bitcoin_testnet bitcoin bitcoin_cash bitcoin_gold litecoin dogecoin dash zcash horizen komodo stratis peercoin pivx viacoin vertcoin stealth digibyte qtum bitcoin_private zcoin gamecredits zclassic xsn nix lbry resistance wagerr
 
 endif
